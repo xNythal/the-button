@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark">
+    <head>
+        <title>The Button - Level 1</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        <style>body {
+            user-select: none; } footer {
+                text-align: center;
+            } footer {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+}
+</style>
+    </head>
+    <body>
+        <h1>Level 1</h1>
+        <h3>Press the button.</h3>
+        <button onclick="startGame()" class="btn btn-success">Level 2</button>
+        <footer hidden id="clock"></footer>
+        <script>
+            setInterval(() => {
+                document.querySelector("footer").innerText = new Date().toLocaleTimeString()
+            }, 1000);
+
+            function startGame() {
+                document.querySelector("footer").removeAttribute("hidden")
+                document.querySelector("h1").innerText = "Level 7"
+                document.querySelector("title").innerText = "The Button - Level 7"
+                document.querySelector("h3").innerText = "This button likes numbers divisible by 10."
+                document.querySelector("button").innerText = "Level 8"
+                document.querySelector("button").onclick = () => {
+            const seconds = new Date().getSeconds();
+
+            if (seconds % 10 === 0) {
+                window.location.href = "level8.html"
+            } else {
+                window.location.href = "gameover.html?level=5"
+            }}}
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    </body>
+</html>
