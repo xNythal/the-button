@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark">
+    <head>
+        <title>The Button - Level 5</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+            crossorigin="anonymous">
+        <style>body {
+            user-select: none;
+        }</style>
+    </head>
+    <body>
+        <h1>Level 5</h1>
+        <h3><em>SHHHHHHH!</em></h3>
+        <button onclick="window.location.href = 'gameover.html?level=1'"
+            class="btn btn-success" hidden>ggezlolz (Green)</button>
+        <button onclick="window.location.href = 'level6.html'"
+            class="btn btn-danger" hidden>TheButtonHater (Red)</button>
+        <script>
+           const h3 = document.getElementsByTagName("h3")[0]
+           setTimeout(() => {
+            h3.innerHTML = "There is <span style='color: red'>1 impostor</span> among us."
+            setTimeout(() => {
+                h3.innerText = "TheButtonPlayer (Blue): Who???"
+                h3.style.color = "blue"
+                for (let i = 0; i < 2; i++) {
+                    document.getElementsByTagName("button")[i].removeAttribute("hidden")
+                }
+            }, 3000)
+           }, 3000) 
+        </script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous"></script>
+    </body>
+</html>
