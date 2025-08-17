@@ -18,27 +18,20 @@
 </head>
 <body>
     <h1>Level 6</h1>
-    <h3 id="status">Click the GREEN button only!</h3>
+    <h3>Click the GREEN button only!</h3>
     <button id="btn" class="btn btn-success">Level 7</button>
 
     <script>
         const btn = document.getElementById("btn");
-        const status = document.getElementById("status");
 
         const colors = ['btn-success','btn-danger','btn-warning','btn-primary','btn-info','btn-dark'];
         const correctColor = 'btn-success';
-        let score = 0;
 
         btn.onclick = () => {
             if (btn.classList.contains(correctColor)) {
-                score++;
-                status.innerText = "Score: " + score;
-                if (score >= 5) {
                     window.location.href = "level7.html";
-                }
             } else {
-                score = 0;
-                status.innerText = "Wrong color! Score reset to 0.";
+                window.location.href = "gameover.html?level=5"
             }
         }
 

@@ -14,32 +14,43 @@
     <body>
         <h1>Level 5</h1>
         <h3><em>SHHHHHHH!</em></h3>
-        <button onclick="gameOver()"
+        <button onclick="tryClick(event)"
             class="btn btn-success" hidden>ggezlolz</button>
-        <button onclick="checkPoint()"
+        <button onclick="tryClick(event)"
             class="btn btn-danger" hidden>TheButtonHater</button>
         <script>
            const h3 = document.getElementsByTagName("h3")[0]
            setTimeout(() => {
             h3.innerHTML = "There is <span style='color: red'>1 impostor</span> among us."
             setTimeout(() => {
-                h3.innerText = "TheButtonPlayer: Who???"
+                const names = ["TheButtonPlayer", "ggezlolz", "Hello", "Nythal", "carrot", "ImAHacker"]
+                const questions = ["Who???", "??????", "What?", "Why?", "Who is the impostor?", "Where was the body?"]
+                h3.innerText = names[Math.floor(Math.random() * names.length)] + ": " + questions[Math.floor(Math.random() * questions.length)]
                 h3.style.color = "blue"
                 for (let i = 0; i < 2; i++) {
                     document.getElementsByTagName("button")[i].removeAttribute("hidden")
+                    document.getElementsByTagName("button")[i].innerText = names[Math.floor(Math.random() * names.length)]
                 }
             }, 3000)
            }, 3000)
-           function gameOver() {
-            h3.innerText = "ggezlolz was not the impostor."
+           function tryClick(e) {
+            for (let i = 0; i < 2; i++) {
+                    document.getElementsByTagName("button")[i].setAttribute("hidden", true)
+                }
+                h3.style.color = "white"
+                const bools = [true, false]
+            const won = bools[Math.floor(Math.random() * 2)]
+            if (won) {
+            h3.innerText = e.target.innerText + " was the impostor."
+            } else {
+            h3.innerText = e.target.innerText + " was not the impostor."
+            }
             setTimeout(() => {
+                if (won) {
+            window.location.href = "checkpoint.html?level=6"
+            } else {
                 window.location.href = "gameover.html?level=1"
-            }, 3000);
-           }
-           function checkPoint() {
-            h3.innerText = "TheButtonHater was the impostor."
-            setTimeout(() => {
-                window.location.href = "checkpoint.html?level=6"
+            }
             }, 3000);
            }
         </script>
